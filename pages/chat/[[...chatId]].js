@@ -17,6 +17,7 @@ import { TailSpin } from "react-loading-icons";
   /chat/7t8yg
 */
 export default function ChatPage({ chatId, title, messages = [] }) {
+  console.log(messages);
   const [newChatId, setNewChatId] = useState(null);
   const [incomingMessage, setIncomingMessage] = useState("");
   const [messageText, setMessageText] = useState("");
@@ -124,7 +125,7 @@ export default function ChatPage({ chatId, title, messages = [] }) {
             )}
             {!!allMessages.length && (
               <div className="mb-auto">
-                {messages.map((message) => (
+                {allMessages.map((message) => (
                   <Message
                     key={message._id}
                     role={message.role}
