@@ -61,17 +61,13 @@ export default function ChatPage({ chatId, title, messages = [] }) {
     e.preventDefault();
     setGeneratingResponse(true);
     setOriginalChatId(chatId);
-    setNewChatMessages((prev) => {
-      const newChatMessages = [
-        ...prev,
-        {
-          _id: uuid(),
-          role: "user",
-          content: messageText,
-        },
-      ];
-      return newChatMessages;
-    });
+    setNewChatMessages((prev) => [
+      {
+        _id: uuid(),
+        role: "user",
+        content: messageText,
+      },
+    ]);
     setMessageText("");
 
     console.log("NEW CHAT: ", { chatId, message: messageText });
@@ -93,10 +89,6 @@ export default function ChatPage({ chatId, title, messages = [] }) {
   };
 
   const allMessages = [...messages, ...newChatMessages];
-
-  // useEffect(() => {
-  //   setNewChatMessages([]);
-  // }, [allMessages]);
 
   console.log({allMessages});
 

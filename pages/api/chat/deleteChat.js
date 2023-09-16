@@ -9,7 +9,8 @@ export default async function handler(req, res) {
     const client = await clientPromise;
     const db = client.db("longshotGPT");
     let chatObjectId = new ObjectId(chatId);
-    const chats = await db.collection("chats").findOneAndDelete({
+   
+    await db.collection("chats").findOneAndDelete({
       _id: chatObjectId,
       userId: user.sub,
     });

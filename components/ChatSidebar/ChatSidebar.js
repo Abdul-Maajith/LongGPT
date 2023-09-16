@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 
 export const ChatSidebar = ({ chatId }) => {
   const [chatList, setChatList] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const loadChatList = async () => {
@@ -24,18 +25,25 @@ export const ChatSidebar = ({ chatId }) => {
     loadChatList();
   }, [chatId]);
 
-  const handleDelete = async () => {
-    await fetch(`/api/chat/deleteChat`, {
+  const handleDelete = async (e, chatIdToDelete) => {
+    e.preventDefault();
+    const response  = await fetch(`/api/chat/deleteChat`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        chatId,
+        chatId: chatIdToDelete,
       }),
     });
-
-    chatList.filter((chat) => chat._id !== chatId);
+    
+    if (response.ok) {
+      if(chatList.length !== 1) {
+        setChatList(chatList.filter((chat) => chat._id !== chatIdToDelete));
+      } else {
+        router.reload();
+      }
+    }
   }
 
   return (
@@ -62,10 +70,10 @@ export const ChatSidebar = ({ chatId }) => {
             >
               {chat.title}
             </span>
-            <button onClick={handleDelete}>
+            <button onClick={(e) => handleDelete(e,chat._id)}>
               <FontAwesomeIcon
                 icon={faTrash}
-                className="invisible absolute left-56 bottom-3 text-white/50 group-hover:visible"
+                className="invisible absolute bottom-3 left-56 text-white/50 group-hover:visible"
               />
             </button>
           </Link>
