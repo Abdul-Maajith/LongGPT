@@ -103,10 +103,10 @@ export default function ChatPage({ chatId, title, messages = [] }) {
         <title>New chat</title>
       </Head>
       {/* Sidebar with 260px, remaining be occupied for chat screen */}
-      <div className="grid h-screen grid-cols-[260px_1fr] scrollbar-hide">
+      <div className="grid h-screen grid-cols-[260px_1fr]">
         <ChatSidebar chatId={chatId} />
         <div className="flex flex-col overflow-hidden bg-gray-700">
-          <div className="flex flex-1 flex-col-reverse overflow-scroll text-white">
+          <div className="flex flex-1 flex-col-reverse overflow-y-scroll text-white">
             {!allMessages.length && !incomingMessage && (
               <div className="m-auto flex items-center justify-center text-center">
                 <div>
