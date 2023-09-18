@@ -1,34 +1,113 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# LongGPT
+
+![LongGPT](./public/favicon.svg)
+
+## Table of Contents
+
+- [Project Description](#project-description)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Project Description
+
+LongGPT is an AI-powered conversational application utilizing the LongShot API, characterized by its human-like conversational abilities, factual accuracy, and capacity to provide highly relevant and precise responses.
+
+## Tech Stack
+
+List of technologies, frameworks, and tools used in this project.
+
+- Next JS - Next.js (^13.0) with a structured "pages" directory.
+- Next JS(Backend) - Next.js (Inbuilt API Directory) serving as both the frontend and backend.
+- Database - MongoDB, used for data storage and retrieval.
+- NextJS backend framework - Express.js, integrated within the Next.js backend to handle API requests and routing.
+
+## Features
+
+The key features of LongGPT:
+
+### Feature Name 1
+
+![Authentication System](./public/LongshotGPTAuthScreen.png)
+
+Authentication system, encompassing both user registration (Sign-Up) and login processes, is enhanced by the implementation of an OAuth Client Library, providing a swift and effortless experience for users.
+
+### Feature Name 2
+
+![Multiple chat instances](./public/LongshotGPTChatScreen.png)
+
+ - It enables users to engage in several distinct and simultaneous chat sessions within a single interface, enhancing multitasking and versatility. 
+ - This functionality is particularly useful in scenarios where users need to manage multiple conversations, inquiries, or tasks concurrently. 
+ - Whether it's providing customer support, handling various queries, or assisting with diverse topics, the Multiple Chat Instances feature optimizes efficiency and responsiveness.
+
+ ![Delete chat instances](./public/LongshotGPTDeleteChat.png)
+
+ - This feature allows users to delete specific chat instances within the AI chatbot platform. Chat instances are individual conversations or interactions between users and the chatbot. 
+ - By providing the ability to delete chat instances, users can maintain privacy, manage their chat history, and declutter their chat interface.
+
+## Installation
+
+- Clone the Repository
+- Install the necessary Dependencies
+- Start the dev server
+
+```bash
+# Clone the repository
+git clone https://github.com/Abdul-Maajith/LongGPT.git
+
+# Install dependencies
+cd longshotGPT
+npm install
+npm run dev
+```
+
+# Usage
+1. **Authentication (Auth):** Users can securely authenticate themselves within the chatbot environment, ensuring data privacy and access control.
+
+2. **Create Chat:** Users have the ability to initiate new chat sessions with the AI, enabling them to seek information, ask questions, or engage in meaningful conversations.
+
+3. **Conversation with AI:** This feature empowers users to interact with the AI chatbot, providing them with answers to queries, assistance, and relevant information in a conversational manner.
+
+4. **Moving to Multiple Chat Instances:** Users can seamlessly transition between multiple chat instances, allowing them to multitask or engage in different conversations without interruption.
+
+5. **Delete Chat Instance:** When no longer needed, users can effortlessly remove chat instances, decluttering their chat history and maintaining a clean and organized interface.
+
+# open-source contribtion
+We welcome contributions from the community to improve LongGPT. To ensure a smooth and collaborative development process, please follow these guidelines:
 
 ## Getting Started
 
-First, run the development server:
+1. Fork the repository to your GitHub account.
+
+2. Clone your forked repository to your local machine:
 
 ```bash
-npm run dev
-# or
-yarn dev
+ git clone https://github.com/yourusername/your-project.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Create a new branch for your feature development or bug fix:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+ git checkout -b feature-name
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+4. To stay up to date with the main branch:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+ git pull origin main
+```
 
-## Learn More
+5. Make changes and work on your feature!
 
-To learn more about Next.js, take a look at the following resources:
+6. Commit your changes with a descriptive commit message:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+ git commit -m "Add feature-name"
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+7. Creating a Pull Request (PR) and wait for Approval
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Thanks!!
