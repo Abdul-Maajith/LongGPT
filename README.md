@@ -1,6 +1,6 @@
 # LongGPT
 
-![LongGPT](./public/favicon.svg)
+![LongGPT](./public/favicon.png)
 
 ## Table of Contents
 
