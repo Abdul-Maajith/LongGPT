@@ -19,7 +19,6 @@ export const ChatSidebar = ({ chatId }) => {
         method: "POST",
       });
       const json = await response.json();
-      console.log("CHAT LIST: ", json);
       setChatList(json?.chats || []);
     };
     loadChatList();

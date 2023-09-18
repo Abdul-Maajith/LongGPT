@@ -113,6 +113,8 @@ export default async function handler(req) {
       }),
     });
 
+    console.log("Credits used from LongshotAPI: " + json.credits_used);
+
     const resp = {
       chatId,
       content: json.copies[0].content,

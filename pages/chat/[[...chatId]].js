@@ -17,7 +17,6 @@ import { TailSpin } from "react-loading-icons";
   /chat/7t8yg
 */
 export default function ChatPage({ chatId, title, messages = [] }) {
-  console.log(messages);
   const [newChatId, setNewChatId] = useState(null);
   const [incomingMessage, setIncomingMessage] = useState("");
   const [messageText, setMessageText] = useState("");
@@ -34,26 +33,12 @@ export default function ChatPage({ chatId, title, messages = [] }) {
     setNewChatId(null);
   }, [chatId]);
 
-  // save the newly streamed message to new chat messages
-  useEffect(() => {
-    if (!routeHasChanged && !generatingResponse && incomingMessage) {
-      setNewChatMessages((prev) => [
-        ...prev,
-        {
-          _id: uuid(),
-          role: "assistant",
-          content: incomingMessage,
-        },
-      ]);
-      setIncomingMessage("");
-    }
-  }, [generatingResponse, incomingMessage, routeHasChanged]);
-
   // if we've created a new chat
   useEffect(() => {
     if (!generatingResponse && newChatId) {
+      const currentChatId = newChatId;
       setNewChatId(null);
-      router.push(`/chat/${newChatId}`);
+      router.push(`/chat/${currentChatId}`);
     }
   }, [newChatId, generatingResponse, router]);
 
@@ -62,6 +47,7 @@ export default function ChatPage({ chatId, title, messages = [] }) {
     setGeneratingResponse(true);
     setOriginalChatId(chatId);
     setNewChatMessages((prev) => [
+      ...prev,
       {
         _id: uuid(),
         role: "user",
@@ -85,12 +71,31 @@ export default function ChatPage({ chatId, title, messages = [] }) {
     
     setNewChatId(data.chatId);
     setIncomingMessage(data.content);
+    setNewChatMessages((prev) => [
+      ...prev,
+      {
+        _id: uuid(),
+        role: "assistant",
+        content: data.content,
+      },
+    ]);
     setGeneratingResponse(false);
+    setIncomingMessage("")
   };
 
   const allMessages = [...messages, ...newChatMessages];
 
-  console.log({allMessages});
+  const uniqueMessages = {};
+  const deduplicatedMessages = [];
+
+  allMessages.forEach((message) => {
+    const messageKey = `${message.role}-${message.content}`;
+
+    if (!uniqueMessages[messageKey]) {
+      uniqueMessages[messageKey] = true;
+      deduplicatedMessages.push(message);
+    }
+  });
 
   return (
     <>
@@ -117,7 +122,7 @@ export default function ChatPage({ chatId, title, messages = [] }) {
             )}
             {!!allMessages.length && (
               <div className="mb-auto">
-                {allMessages.map((message) => (
+                {deduplicatedMessages.map((message) => (
                   <Message
                     key={message._id}
                     role={message.role}
