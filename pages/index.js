@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>LongShotGPT - Login or Signup</title>
+        <title>LongGPT - Login or Signup</title>
       </Head>
       <div className="flex min-h-screen w-full items-center justify-center bg-gray-800 text-center text-white no-scrollbar">
         <div>
