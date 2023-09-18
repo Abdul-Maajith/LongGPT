@@ -29,19 +29,21 @@ List of technologies, frameworks, and tools used in this project.
 
 The key features of LongGPT:
 
-### Feature Name 1
+### Authentication System
 
 ![Authentication System](./public/LongshotGPTAuthScreen.png)
 
 Authentication system, encompassing both user registration (Sign-Up) and login processes, is enhanced by the implementation of an OAuth Client Library, providing a swift and effortless experience for users.
 
-### Feature Name 2
+### Multiple chat instances
 
 ![Multiple chat instances](./public/LongshotGPTChatScreen.png)
 
  - It enables users to engage in several distinct and simultaneous chat sessions within a single interface, enhancing multitasking and versatility. 
  - This functionality is particularly useful in scenarios where users need to manage multiple conversations, inquiries, or tasks concurrently. 
  - Whether it's providing customer support, handling various queries, or assisting with diverse topics, the Multiple Chat Instances feature optimizes efficiency and responsiveness.
+
+ ### Delete chat instances
 
  ![Delete chat instances](./public/LongshotGPTDeleteChat.png)
 
